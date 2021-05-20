@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from 'react-native-vector-icons'
-import plants from './plantView'
+import plantpage from './plantView'
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ export default class Navigator extends Component {
                 <Tab.Navigator>
                     <Tab.Screen
                         name="mainPage"
-                        component={plants}
+                        component={plantpage}
                         options={{
                         tabBarIcon: ({ color, size }) => (
                             <Ionicons name="ios-home" color={color} size={size} />)

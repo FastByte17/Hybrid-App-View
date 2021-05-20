@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-//import { ScrollView } from 'react-native-gesture-handler'
-//import Plant from './plant'
+import { ScrollView } from 'react-native-gesture-handler'
+import Plants from './plants'
 
 export default class plantView extends Component {
     constructor(props) {
@@ -14,14 +14,15 @@ export default class plantView extends Component {
         }
     }
 
-    setPlantsDisplayed(value){
-        this.setState({PlantsDisplayed: value})
+    setPlantsDisplayed(value) {
+        console.log(value)
+        this.setState({ plantsDisplayed: value })
     }
 
-    setText(value){
-        this.setState({text: value})
-        this.setPlantsDisplayed(this.state.plants.filter(i => i.plant_info.name == this.state.text || i.plant_info_location == this.state.text || i.plant.price == this.state.textbar))
-        if (this.state.text == '' || this.state.text == null){
+    setText(value) {
+        this.setState({ text:value })
+        this.setPlantsDisplayed(this.state.plants.filter(i => i.plantInfo.name == this.state.text || i.plantInfo.location == this.state.text || i.plant.price == this.state.text))
+        if (this.state.text == '' || this.state.text == null) {
             this.setPlantsDisplayed(this.state.plants)
         }
     }
@@ -30,6 +31,7 @@ export default class plantView extends Component {
         console.log('getting plants');
         fetch('https://apigraded.herokuapp.com/plants', {
             method: 'GET',
+            mode: 'cors'
         })
             .then(response => {
                 if (response.ok == false) {
@@ -57,14 +59,32 @@ export default class plantView extends Component {
     }
 
 
+
     render() {
+
+        let dp  = this.state.plantsDisplayed
+        console.log(this.state.plants);
         return (
-            <View style={{ flex: 1, alignItems: 'center', backgroundColor: "#E3620B"}}>
+            <View style={{ flex: 1, alignItems: 'center', backgroundColor: "#E3620B" }}>
                 <View style={styles.plantBox}>
-                    
+
                     <Text style={styles.header}>Select a plant</Text>
                     <Button title="Reload" color="#3300F0" onPress={() => this.getPlants()} />
                     
+                    
+                    <ScrollView>
+                        
+                         {dp.map(
+                             (i )=> 
+                             {
+                                 console.log(i);
+                            return <Plants plant={i} key={this.state.plantsDisplayed.indexOf(i)}/>
+                            }
+                             )
+                        } 
+                        
+                    </ScrollView>
+
                 </View>
             </View>
         )
@@ -73,34 +93,34 @@ export default class plantView extends Component {
 
 const styles = StyleSheet.create({
     header: {
-      fontSize: 18,
-      marginTop: 20,
-      marginBottom: 10,
-      color: 'black'
+        fontSize: 18,
+        marginTop: 20,
+        marginBottom: 10,
+        color: 'black'
     },
     root: {
-      flexDirection: 'column',
-      backgroundColor: 'white',
-      flex: 1,
-      paddingTop: 18
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        flex: 1,
+        paddingTop: 18
     },
-    itemBox: {
-      flex: 1,
-      flexDirection: 'column',
-      marginTop: 20,
-      marginBottom: 20,
-      alignItems: 'center',
-      backgroundColor: '#CAF0F8',
-      width: 300
+    plantBox: {
+        flex: 1,
+        flexDirection: 'column',
+        marginTop: 20,
+        marginBottom: 20,
+        alignItems: 'center',
+        backgroundColor: '#CAF0F8',
+        width: 300
     },
     textbox: {
-      borderWidth: 1,
-      height: 40,
-      width: '80%',
-      backgroundColor: 'white',
-      textAlign: 'center',
-      fontSize: 18,
-      marginTop: 5,
-      marginBottom: 20
-  },
-  });
+        borderWidth: 1,
+        height: 40,
+        width: '80%',
+        backgroundColor: 'white',
+        textAlign: 'center',
+        fontSize: 18,
+        marginTop: 5,
+        marginBottom: 20
+    },
+});
