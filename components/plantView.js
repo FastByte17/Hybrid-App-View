@@ -65,8 +65,8 @@ export default class plantView extends Component {
         let dp  = this.state.plantsDisplayed
         console.log(this.state.plants);
         return (
-            <View style={{ flex: 1, alignItems: 'center', backgroundColor: "#E3620B" }}>
-                <View style={styles.plantBox}>
+            <View style={{ justifyContent: "center", flex: 1, alignItems: 'center', backgroundColor: "#E3620B" }}>
+                 <View style={styles.plantBox}>
 
                     <Text style={styles.header}>Select a plant</Text>
                     <Button title="Reload" color="#3300F0" onPress={() => this.getPlants()} />
@@ -86,6 +86,8 @@ export default class plantView extends Component {
                     </ScrollView>
 
                 </View>
+                
+
             </View>
         )
     }
