@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { StyleSheet, Text, View, Button } from 'react-native'
+//import { ScrollView } from 'react-native-gesture-handler'
 //import Plant from './plant'
 
 export default class plantView extends Component {
@@ -71,4 +71,36 @@ export default class plantView extends Component {
     }
 }
 
-
+const styles = StyleSheet.create({
+    header: {
+      fontSize: 18,
+      marginTop: 20,
+      marginBottom: 10,
+      color: 'black'
+    },
+    root: {
+      flexDirection: 'column',
+      backgroundColor: 'white',
+      flex: 1,
+      paddingTop: 18
+    },
+    itemBox: {
+      flex: 1,
+      flexDirection: 'column',
+      marginTop: 20,
+      marginBottom: 20,
+      alignItems: 'center',
+      backgroundColor: '#CAF0F8',
+      width: 300
+    },
+    textbox: {
+      borderWidth: 1,
+      height: 40,
+      width: '80%',
+      backgroundColor: 'white',
+      textAlign: 'center',
+      fontSize: 18,
+      marginTop: 5,
+      marginBottom: 20
+  },
+  });
