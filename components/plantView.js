@@ -95,7 +95,7 @@ export default class plantView extends Component {
 
 const styles = StyleSheet.create({
     header: {
-        fontSize: 18,
+        fontSize: 40,
         marginTop: 20,
         marginBottom: 10,
         color: 'black'
@@ -113,16 +113,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: 'center',
         backgroundColor: '#687578',
-        width: 300
-    },
-    textbox: {
-        borderWidth: 1,
-        height: 40,
-        width: '80%',
-        backgroundColor: '#c29827',
-        textAlign: 'center',
-        fontSize: 18,
-        marginTop: 5,
-        marginBottom: 20
-    },
+        width: 300,
+        fontSize: 14
+    }
 });

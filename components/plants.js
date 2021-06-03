@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         borderStyle: 'solid',
-
         width: 300
     },
     plantimg: {
