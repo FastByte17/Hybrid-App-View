@@ -21,7 +21,7 @@ export default class plantView extends Component {
 
     setText(value) {
         this.setState({ text:value })
-        this.setPlantsDisplayed(this.state.plants.filter(i => i.plantInfo.name == this.state.text || i.plantInfo.location == this.state.text || i.plant.price == this.state.text))
+        this.setPlantsDisplayed(this.state.plants.filter(i => i.plantInfo.name == this.state.text || i.plantInfo.location == this.state.text || i.plant.price == this.state.text || i.seller.name == this.state.text))
         if (this.state.text == '' || this.state.text == null) {
             this.setPlantsDisplayed(this.state.plants)
         }
@@ -65,7 +65,7 @@ export default class plantView extends Component {
         let dp  = this.state.plantsDisplayed
         console.log(this.state.plants);
         return (
-            <View style={{ justifyContent: "center", flex: 1, alignItems: 'center', backgroundColor: "#E3620B" }}>
+            <View style={{ justifyContent: "center", flex: 1, alignItems: 'center', backgroundColor: "#687578" }}>
                  <View style={styles.plantBox}>
 
                     <Text style={styles.header}>Select a plant</Text>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     root: {
         flexDirection: 'column',
-        backgroundColor: 'white',
+        backgroundColor: '#c29827',
         flex: 1,
         paddingTop: 18
     },
@@ -112,14 +112,14 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
         alignItems: 'center',
-        backgroundColor: '#CAF0F8',
+        backgroundColor: '#687578',
         width: 300
     },
     textbox: {
         borderWidth: 1,
         height: 40,
         width: '80%',
-        backgroundColor: 'white',
+        backgroundColor: '#c29827',
         textAlign: 'center',
         fontSize: 18,
         marginTop: 5,

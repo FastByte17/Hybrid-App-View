@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
 
 export default class plants extends Component {
@@ -23,6 +23,8 @@ export default class plants extends Component {
                         <Text>{this.props.plant.plantInfo.name}</Text>
                         <Text>Location: {this.props.plant.plantInfo.location}</Text>
                         <Text>Price: {this.props.plant.plantInfo.price}</Text>
+                        <Text>Seller: {this.props.plant.seller.name}</Text>
+                        <Text>Contact: {this.props.plant.seller.phone}</Text>
                         
                         
 
@@ -82,7 +84,8 @@ export default class plants extends Component {
 
                          <Text>{this.props.plant.plantInfo.name}</Text>
                         <Text>Price: {this.props.plant.plantInfo.price}</Text>
-                        <Text>Location: {this.props.plant.planInfo.location}</Text>
+                        <Text>Location: {this.props.plant.plantInfo.location}</Text>
+                        <Text>Seller: {this.props.plant.seller.name}</Text>
                     
                     </View>
                 </Views>
@@ -107,21 +110,22 @@ export default class plants extends Component {
 const styles = StyleSheet.create({
     singleplant: {
         flexDirection: 'row',
-        marginTop: 5,
+        marginTop: 10,
         marginBottom: 5,
-        padding: 5,
+        padding: 10,
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '#c29827',
         borderColor: 'black',
         borderWidth: 2,
-        borderRadius: 10,
         borderStyle: 'solid',
 
         width: 300
     },
     plantimg: {
-        width: 40,
-        height: 40,
-        marginRight: 20
+        width: 90,
+        height: 90,
+        marginRight: 20,
+        borderStyle: 'solid',
+        borderRadius: 10
     }
 });
